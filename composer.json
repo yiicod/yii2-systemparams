@@ -1,0 +1,30 @@
+{
+    "name": "yiicod/yii2-systemparam",
+    "description": "Config params with editable in the admin panel for the Yii framework",
+    "type": "yii2-extension",
+    "license": "New BSD License",
+    "authors": [
+        {
+            "name": "Alexey Orlov",
+            "email": "aaorlov88@gmail.com",
+            "homepage": "http://phpteamlib.apache.devplatform1.com/",
+            "role": "Developer"
+        },
+        {
+            "name": "Virchenko Maksim",
+            "email": "muslim1992@gmail.com",
+            "homepage": "http://phpteamlib.apache.devplatform1.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "vitalets/x-editable-yii": "1.3.*",
+        "yii2mod/yii2-editable": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "yiicod\\systemparam\\": "/"
+        }
+    }
+}
