@@ -66,7 +66,6 @@ class SystemParams extends Component implements BootstrapInterface
         }
 
         Yii::setAlias('@yiicod', realpath(dirname(__FILE__) . '/..'));
-        Yii::setAlias('@yiicod_systemparams_migrations', realpath(dirname(__FILE__) . '/migrations'));
     }
 
     /**

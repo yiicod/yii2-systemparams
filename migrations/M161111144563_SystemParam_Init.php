@@ -1,7 +1,5 @@
 <?php
 
-namespace yiicod_systemparams_migrations;
-
 use yii\db\Migration;
 
 class M161111144563_SystemParam_Init extends Migration

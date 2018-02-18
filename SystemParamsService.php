@@ -241,7 +241,7 @@ class SystemParamsService
 
         foreach ($keys as $key) {
             $array = isset($array[$key]) ? $array[$key] : self::PARAM_IS_NOT_SET;
-            if ($array == self::PARAM_IS_NOT_SET) {
+            if (self::PARAM_IS_NOT_SET == $array) {
                 break;
             }
         }
