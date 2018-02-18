@@ -1,5 +1,5 @@
 {
-    "name": "yiicod/yii2-systemparam",
+    "name": "yiicod/yii2-systemparams",
     "description": "Config params with editable in the admin panel for the Yii framework",
     "type": "yii2-extension",
     "license": "MIT",
