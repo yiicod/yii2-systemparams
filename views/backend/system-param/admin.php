@@ -10,6 +10,7 @@ use yii2mod\editable\EditableColumn;
 
 $this->title = Yii::t('systemparam', 'Manage Params');
 $this->params['breadcrumbs'][] = $this->title;
+$attributesMap = Yii::$app->get('systemparams')->modelMap['systemParam']['class']::attributesMap();
 ?>
 <div class="system-param-model-index">
     <h1><?= Html::encode($this->title); ?></h1>
@@ -18,12 +19,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            Yii::$app->get('systemparams')->modelMap['systemParam']['class']::attributesMap()['fieldParamKey'],
-            Yii::$app->get('systemparams')->modelMap['systemParam']['class']::attributesMap()['fieldDescription'],
+            $attributesMap['fieldParamKey'],
+            $attributesMap['fieldDescription'],
             [
                 'class' => EditableColumn::className(),
-                'attribute' => Yii::$app->get('systemparams')->modelMap['systemParam']['class']::attributesMap()['fieldParamValue'],
+                'attribute' => $attributesMap['fieldParamValue'],
                 'url' => ['update'],
+                'editableOptions' => function ($model) {
+                    switch ($model->validator) {
+                        case 'boolean':
+                            return [
+                                'type' => 'select',
+                                'source' => [1 => 'Active', 0 => 'Unactive'],
+                            ];
+                        default:
+                            return [];
+                    }
+                },
             ],
         ],
     ]); ?>

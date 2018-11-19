@@ -80,6 +80,6 @@ class SystemParams extends Component implements BootstrapInterface
     {
         $value = self::$service->getParam($param);
 
-        return $value === null ? $default : $value;
+        return null === $value ? $default : $value;
     }
 }

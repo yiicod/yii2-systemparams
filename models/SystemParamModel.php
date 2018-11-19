@@ -31,16 +31,22 @@ class SystemParamModel extends ActiveRecord
     public function rules()
     {
         return [
-            [['param_key', 'param_value'], 'required'],
+            [['param_key'], 'required'],
             [['param_key', 'param_value'], 'string', 'max' => 100],
-            ['param_value', 'email', 'when' => function ($model) {
+            ['param_value', 'email', 'skipOnEmpty' => true, 'when' => function ($model) {
                 return 'email' == $model->validator;
             }],
             ['param_value', 'integer', 'when' => function ($model) {
                 return 'integer' == $model->validator;
             }],
-            ['param_value', 'url', 'when' => function ($model) {
+            ['param_value', 'url', 'skipOnEmpty' => true, 'when' => function ($model) {
                 return 'url' == $model->validator;
+            }],
+            ['param_value', 'string', 'skipOnEmpty' => true, 'when' => function ($model) {
+                return 'string' == $model->validator;
+            }],
+            ['param_value', 'boolean', 'when' => function ($model) {
+                return 'boolean' == $model->validator;
             }],
             [['description'], 'string', 'max' => 255],
             [['validator'], 'string', 'max' => 50],
